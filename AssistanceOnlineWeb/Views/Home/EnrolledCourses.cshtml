@@ -1,0 +1,35 @@
+﻿@model IEnumerable<AssistanceOnlineDAL.Courses>
+
+<div class="panel-group accordion" id="accordion">
+
+    @foreach (var item in Model)
+    {
+        var name = "collapse_" + item.Id_course;
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-md-11">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#@name" class="collapsed">
+                                @item.Name
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="col-md-1">
+                        <a href="@Url.Action("Index","DetailCourse",new { id = item.Id_course})" class="btn btn-primary btn-xs">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="@name" class="panel-collapse collapse" style="height: 0px;">
+                <div class="panel-body">
+                    @item.Description
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+

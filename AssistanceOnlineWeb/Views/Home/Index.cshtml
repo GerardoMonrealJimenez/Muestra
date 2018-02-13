@@ -1,0 +1,124 @@
+﻿@model  AssistanceOnlineDAL.AspNetUsers
+@{
+    ViewBag.Title = "Home Page";
+}
+@section Scripts
+{
+    <script src="~/Scripts/Home.js"></script>
+}
+
+
+@*Cursos*@
+<div class="row">
+    <div class="col-md-6">
+        <div class="row">
+            @*Cursos del usuario*@
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">My Courses</h3>
+                        <div class="actions pull-right">
+                            <i class="fa fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="panel-body" id="pan_Courses">
+
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="col-md-12">
+                <button class="btn btn-primary btn-lg" onclick="ModalView()">
+                    Create Course
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        @*Cursos en los que esta inscrito*@
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Enrolled Courses</h3>
+                    <div class="actions pull-right">
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="panel-body" id="pan_CoursesEnrroled">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#formModal2">
+                Launch default modal
+            </button>
+        </div>
+    </div>
+   
+
+
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+    
+    </div>
+</div>
+
+@using (Ajax.BeginForm("AddCourse", new AjaxOptions { HttpMethod = "POST", LoadingElementId = "ajaxLoader", OnSuccess = "succesAddCourse", OnBegin = "beginAddCourse", OnFailure = "failAddCourse" }))
+{
+    <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel"> Add Course</h4>
+                </div>
+                <div class="modal-body">
+                    @Html.AntiForgeryToken()
+
+                    <div class="row">
+                        <div class="col-md-12" id="AC_modal"></div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <input type="submit" value="Add" class="btn btn-primary" />
+                    @*<button type="button" class="btn btn-primary">Sign in</button>*@
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@using (Ajax.BeginForm("", new AjaxOptions { HttpMethod = "POST", LoadingElementId = "ajaxLoader", OnSuccess = "", OnBegin = "", OnFailure = "" }))
+{
+    <div class="modal fade" id="formModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel"> Add Course</h4>
+                </div>
+                <div class="modal-body">
+                    @Html.AntiForgeryToken()
+
+                    <div class="row">
+                        <div class="col-md-12" id="AC_modal"></div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <input type="submit" value="Add" class="btn btn-primary" />
+                    @*<button type="button" class="btn btn-primary">Sign in</button>*@
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

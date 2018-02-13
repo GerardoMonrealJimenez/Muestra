@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AssistanceOnlineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AssistanceCourses">
+    <Key>
+      <PropertyRef Name="Id_course" />
+      <PropertyRef Name="Assistance_date" />
+    </Key>
+    <Property Name="Id_course" Type="int" Nullable="false" />
+    <Property Name="Assistance_date" Type="date" Nullable="false" />
+    <Property Name="Creation_date" Type="datetime" Nullable="false" />
+    <Property Name="Assistans" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AssistanceUsers">
+    <Key>
+      <PropertyRef Name="Id_course" />
+      <PropertyRef Name="Assistance_date" />
+      <PropertyRef Name="Id_user" />
+    </Key>
+    <Property Name="Id_course" Type="int" Nullable="false" />
+    <Property Name="Assistance_date" Type="date" Nullable="false" />
+    <Property Name="Id_user" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="Id_course" />
+    </Key>
+    <Property Name="Id_course" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_user" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="350" Nullable="false" />
+    <Property Name="Description" Type="text" Nullable="false" />
+    <Property Name="Creation_date" Type="date" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HtmlTemplate">
+    <Key>
+      <PropertyRef Name="idHtmlTemplate" />
+    </Key>
+    <Property Name="idHtmlTemplate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="template" Type="text" Nullable="false" />
+    <Property Name="creationDate" Type="datetime" Nullable="false" />
+    <Property Name="modificationDate" Type="datetime" Nullable="false" />
+    <Property Name="active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Key">
+    <Key>
+      <PropertyRef Name="idKey" />
+    </Key>
+    <Property Name="idKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="description" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="value" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="type" Type="int" Nullable="false" />
+    <Property Name="creationDate" Type="datetime" Nullable="false" />
+    <Property Name="modification" Type="datetime" Nullable="false" />
+    <Property Name="active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsersCourses">
+    <Key>
+      <PropertyRef Name="Id_user" />
+      <PropertyRef Name="Id_course" />
+    </Key>
+    <Property Name="Id_user" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Id_course" Type="int" Nullable="false" />
+    <Property Name="Creation_date" Type="datetime" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AssistanceCourses_Id_course_Courses_Id_course">
+    <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+    <End Role="AssistanceCourses" Type="Self.AssistanceCourses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="Id_course" />
+      </Principal>
+      <Dependent Role="AssistanceCourses">
+        <PropertyRef Name="Id_course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AssistanceUsers_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="AssistanceUsers" Type="Self.AssistanceUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AssistanceUsers">
+        <PropertyRef Name="Id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AssistanceUsers_AssistanceCourses">
+    <End Role="AssistanceCourses" Type="Self.AssistanceCourses" Multiplicity="1" />
+    <End Role="AssistanceUsers" Type="Self.AssistanceUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AssistanceCourses">
+        <PropertyRef Name="Id_course" />
+        <PropertyRef Name="Assistance_date" />
+      </Principal>
+      <Dependent Role="AssistanceUsers">
+        <PropertyRef Name="Id_course" />
+        <PropertyRef Name="Assistance_date" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AssistanceUsers_UsersCourses">
+    <End Role="UsersCourses" Type="Self.UsersCourses" Multiplicity="1" />
+    <End Role="AssistanceUsers" Type="Self.AssistanceUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UsersCourses">
+        <PropertyRef Name="Id_course" />
+        <PropertyRef Name="Id_user" />
+      </Principal>
+      <Dependent Role="AssistanceUsers">
+        <PropertyRef Name="Id_course" />
+        <PropertyRef Name="Id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Courses_Id_user_AspNetUsers_Id">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="Courses" Type="Self.Courses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Courses">
+        <PropertyRef Name="Id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersCourses_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="UsersCourses" Type="Self.UsersCourses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersCourses">
+        <PropertyRef Name="Id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersCourses_Courses">
+    <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+    <End Role="UsersCourses" Type="Self.UsersCourses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="Id_course" />
+      </Principal>
+      <Dependent Role="UsersCourses">
+        <PropertyRef Name="Id_course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Sp_InsertCourse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="AssistanceOnlineUser">
+    <Parameter Name="Id_user" Type="nvarchar" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Description" Type="text" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="AssistanceOnlineModelStoreContainer">
+    <EntitySet Name="AssistanceCourses" EntityType="Self.AssistanceCourses" Schema="AssistanceOnlineUser" store:Type="Tables" />
+    <EntitySet Name="AssistanceUsers" EntityType="Self.AssistanceUsers" Schema="AssistanceOnlineUser" store:Type="Tables" />
+    <EntitySet Name="Courses" EntityType="Self.Courses" Schema="AssistanceOnlineUser" store:Type="Tables" />
+    <EntitySet Name="HtmlTemplate" EntityType="Self.HtmlTemplate" Schema="AssistanceOnlineUser" store:Type="Tables" />
+    <EntitySet Name="Key" EntityType="Self.Key" Schema="AssistanceOnlineUser" store:Type="Tables" />
+    <EntitySet Name="UsersCourses" EntityType="Self.UsersCourses" Schema="AssistanceOnlineUser" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AssistanceCourses_Id_course_Courses_Id_course" Association="Self.FK_AssistanceCourses_Id_course_Courses_Id_course">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="AssistanceCourses" EntitySet="AssistanceCourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AssistanceUsers_AspNetUsers" Association="Self.FK_AssistanceUsers_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AssistanceUsers" EntitySet="AssistanceUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AssistanceUsers_AssistanceCourses" Association="Self.FK_AssistanceUsers_AssistanceCourses">
+      <End Role="AssistanceCourses" EntitySet="AssistanceCourses" />
+      <End Role="AssistanceUsers" EntitySet="AssistanceUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AssistanceUsers_UsersCourses" Association="Self.FK_AssistanceUsers_UsersCourses">
+      <End Role="UsersCourses" EntitySet="UsersCourses" />
+      <End Role="AssistanceUsers" EntitySet="AssistanceUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Courses_Id_user_AspNetUsers_Id" Association="Self.FK_Courses_Id_user_AspNetUsers_Id">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Courses" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersCourses_AspNetUsers" Association="Self.FK_UsersCourses_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="UsersCourses" EntitySet="UsersCourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersCourses_Courses" Association="Self.FK_UsersCourses_Courses">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="UsersCourses" EntitySet="UsersCourses" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

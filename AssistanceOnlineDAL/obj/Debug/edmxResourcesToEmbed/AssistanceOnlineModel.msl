@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AssistanceOnlineModelStoreContainer" CdmEntityContainer="AssistanceOnlineContext">
+    <EntitySetMapping Name="HtmlTemplate">
+      <EntityTypeMapping TypeName="AssistanceOnlineModel.HtmlTemplate">
+        <MappingFragment StoreEntitySet="HtmlTemplate">
+          <ScalarProperty Name="idHtmlTemplate" ColumnName="idHtmlTemplate" />
+          <ScalarProperty Name="template" ColumnName="template" />
+          <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+          <ScalarProperty Name="modificationDate" ColumnName="modificationDate" />
+          <ScalarProperty Name="active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Key">
+      <EntityTypeMapping TypeName="AssistanceOnlineModel.Key">
+        <MappingFragment StoreEntitySet="Key">
+          <ScalarProperty Name="idKey" ColumnName="idKey" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+          <ScalarProperty Name="modification" ColumnName="modification" />
+          <ScalarProperty Name="active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="AssistanceOnlineModel.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="AssistanceOnlineModel.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="AssistanceOnlineModel.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="AssistanceOnlineModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="AssistanceOnlineModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="AssistanceCourses">
+      <EntityTypeMapping TypeName="AssistanceOnlineModel.AssistanceCourses">
+        <MappingFragment StoreEntitySet="AssistanceCourses">
+          <ScalarProperty Name="Assistans" ColumnName="Assistans" />
+          <ScalarProperty Name="Creation_date" ColumnName="Creation_date" />
+          <ScalarProperty Name="Assistance_date" ColumnName="Assistance_date" />
+          <ScalarProperty Name="Id_course" ColumnName="Id_course" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssistanceUsers">
+      <EntityTypeMapping TypeName="AssistanceOnlineModel.AssistanceUsers">
+        <MappingFragment StoreEntitySet="AssistanceUsers">
+          <ScalarProperty Name="Id_user" ColumnName="Id_user" />
+          <ScalarProperty Name="Assistance_date" ColumnName="Assistance_date" />
+          <ScalarProperty Name="Id_course" ColumnName="Id_course" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersCourses">
+      <EntityTypeMapping TypeName="AssistanceOnlineModel.UsersCourses">
+        <MappingFragment StoreEntitySet="UsersCourses">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Creation_date" ColumnName="Creation_date" />
+          <ScalarProperty Name="Id_course" ColumnName="Id_course" />
+          <ScalarProperty Name="Id_user" ColumnName="Id_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="AssistanceOnlineModel.Courses">
+        <MappingFragment StoreEntitySet="Courses">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Creation_date" ColumnName="Creation_date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id_user" ColumnName="Id_user" />
+          <ScalarProperty Name="Id_course" ColumnName="Id_course" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_InsertCourse" FunctionName="AssistanceOnlineModel.Store.Sp_InsertCourse" />
+  </EntityContainerMapping>
+</Mapping>

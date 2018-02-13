@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7f4159e69a6c44b4898ee9dceb9c178e" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="AssistanceOnlineModel.HtmlTemplate" Width="1.5" PointX="0.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AssistanceOnlineModel.Key" Width="1.5" PointX="0.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="AssistanceOnlineModel.AspNetRoles" Width="1.5" PointX="3.5" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AssistanceOnlineModel.AspNetUserClaims" Width="1.5" PointX="9.375" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AssistanceOnlineModel.AspNetUserLogins" Width="1.5" PointX="3.375" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AssistanceOnlineModel.AspNetUsers" Width="1.5" PointX="6.125" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="AssistanceOnlineModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="AssistanceOnlineModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="AssistanceOnlineModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AssistanceOnlineModel.AssistanceCourses" Width="1.5" PointX="1.5" PointY="7.375" />
+        <EntityTypeShape EntityType="AssistanceOnlineModel.AssistanceUsers" Width="1.5" PointX="9.375" PointY="5.25" />
+        <EntityTypeShape EntityType="AssistanceOnlineModel.UsersCourses" Width="1.5" PointX="6.5" PointY="9.75" />
+        <AssociationConnector Association="AssistanceOnlineModel.FK_AssistanceUsers_AssistanceCourses" />
+        <AssociationConnector Association="AssistanceOnlineModel.FK_AssistanceUsers_AspNetUsers" />
+        <AssociationConnector Association="AssistanceOnlineModel.FK_AssistanceUsers_UsersCourses" />
+        <AssociationConnector Association="AssistanceOnlineModel.FK_UsersCourses_AspNetUsers" />
+        <EntityTypeShape EntityType="AssistanceOnlineModel.Courses" Width="1.5" PointX="4.125" PointY="5.625" />
+        <AssociationConnector Association="AssistanceOnlineModel.FK_AssistanceCourses_Id_course_Courses_Id_course" />
+        <AssociationConnector Association="AssistanceOnlineModel.FK_Courses_Id_user_AspNetUsers_Id" />
+        <AssociationConnector Association="AssistanceOnlineModel.FK_UsersCourses_Courses" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
